@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+
+      <style>
+        body {
+            width: 100%;
+            height: 100vh;
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url(./street.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        main {
+            width: 20vw;
+            height: 43vh;
+            background-color: white;
+            /* padding: 20px 20px; */
+            color: black;
+            border: 1px solid black;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+      </style>
+  <h1>It's all about javaScript Array.sort() method </h1>
+
+      <main>
+          <ul id="bands"></ul>
+      </main>
+
+      <script>
+         const bands = [
+            "The Plot in Yoy",
+            "The Devil Wears Prada",
+            "Pierce the Veil",
+            "Norma Jean",
+            "The Bled",
+            "Say Anything",
+            "The Midway state",
+            "we Came as Romans",
+            "Counterparts",
+            "Oh, Sleeper",
+            "A Skylit Drive",
+            "Anywere But Here",
+            "An Old Dog",
+         ];
+
+         function strip(bandName) {
+            return bandName.replace(/^(a |the |an )/i, "").trim();
+         }
+
+         const sortedBands = bands.sort((a, b) =>
+            strip(a) > strip(b) ? 1 : -1
+         );
+         document.querySelector("#bands").innerHTML = sortedBands
+            .map((band) => `<li>${band}</li>`)
+            .join("");
+      </script>
+   </body>
+</html>
